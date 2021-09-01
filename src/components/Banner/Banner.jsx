@@ -1,25 +1,42 @@
+import { useState, useEffect } from "react";
+import axios from "../../axios";
+import requests from "../../Requests";
 import "./Banner.css";
 
 const Banner = () => {
-    const someText = "Test DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest Description"
+    const [movie, setMovie] = useState([]);
+
+    const truncateOverview = (str, size) => str?.length > size ? str.substr(0, size - 1) + "..." : str;
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await axios.get(requests.fetchNetflixOriginals);
+            setMovie(
+                res.data.results[Math.floor(Math.random() * res.data.results.length - 1)]
+            );
+            return res; // Good Practice - Closing Promise Chain
+        }
+
+        fetchData();
+    }, []);
 
     return (
         <header 
             className="banner"
             style={{
                 backgroundSize: "cover",
-                backgroundImage: `url("https://lanetaneta.com/wp-content/uploads/2021/06/Los-programas-y-peliculas-mas-importantes-de-Netflix-en-2021.jpg")`,
+                backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
                 backgroundPosition: "center center"
             }}
         >
             <div className="banner-contents">
-                <h1 className="banner-title">Movie Name</h1>
+                <h1 className="banner-title">{movie?.title || movie?.name || movie?.original_name}</h1>
                 <div className="banner-buttons">
                     <button className="banner-button">Play</button>
                     <button className="banner-button">My List</button>
                 </div>
                 <h1 className="banner-desc">
-                    {someText?.length > 150 ? someText.substr(0, 149) + "..." : someText}
+                    {truncateOverview(movie?.overview, 150)}
                 </h1>
             </div>
 
