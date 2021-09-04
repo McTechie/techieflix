@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "../../axios";
-import requests from "../../Requests";
+import axios from "axios";
+import requests from "Requests";
 import "./Banner.css";
 
 const Banner = () => {
@@ -32,8 +32,8 @@ const Banner = () => {
             <div className="banner-contents">
                 <h1 className="banner-title">{movie?.title || movie?.name || movie?.original_name}</h1>
                 <div className="banner-buttons">
-                    <button className="banner-button">Play</button>
-                    <button className="banner-button">My List</button>
+                    <button className="banner-btn">Play</button>
+                    <button className="banner-btn">My List</button>
                 </div>
                 <h1 className="banner-desc">
                     {truncateOverview(movie?.overview, 150)}

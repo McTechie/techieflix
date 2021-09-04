@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "../../axios";
+import axios from "axios";
 import "./Row.css";
 
 const Row = ({ title, fetchUrl, isLargeRow = false }) => {
@@ -16,6 +16,8 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
 
     fetchData();
   }, [fetchUrl]);
+
+  // Fade right of rows as well
 
   return (
     <div className="row">

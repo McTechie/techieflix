@@ -19,6 +19,8 @@ const Nav = () => {
         }
     }, []);
 
+    // Add other links as well
+
     return (
         <div className={`nav ${show && "nav-black"}`}>
             <div className="nav-contents">

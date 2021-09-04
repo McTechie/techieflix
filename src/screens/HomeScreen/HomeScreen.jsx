@@ -1,6 +1,6 @@
-import { Nav, Banner, Row } from "..";
+import { Nav, Banner, Row } from "components";
 import "./HomeScreen.css";
-import requests from "../../Requests";
+import requests from "Requests";
 
 const HomeScreen = () => {
     return (
