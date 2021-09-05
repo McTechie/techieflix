@@ -10,7 +10,7 @@ import "./App.css";
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, user => {
       if (user) {
@@ -25,7 +25,7 @@ function App() {
     });
 
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
