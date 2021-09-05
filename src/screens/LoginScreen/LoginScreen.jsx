@@ -21,17 +21,17 @@ const LoginScreen = () => {
           {signIn ? (
             <SignUpScreen />
           ) : (
-            <>
+              <div className="login-screen-landing">
               <h1>Exciting movies, TV shows and more!</h1>
               <h2>Watch anywhere. Cancel at any time.</h2>
               <h3>Ready to watch? Enter your email to create or renew your membership.</h3>
               <div className="login-screen-input">
                 <form>
                   <input type="email" placeholder="Email Address" />
-                  <button className="login-screen-get-started" onClick={() => setSignIn(true)}>GET STARTED</button>
+                  <button className="login-screen-get-started-btn" onClick={() => setSignIn(true)}>GET STARTED</button>
                 </form>
               </div>
-            </>
+            </div>
           )}
         </div>
       </div>

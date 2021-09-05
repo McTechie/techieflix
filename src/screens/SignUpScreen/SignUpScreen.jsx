@@ -27,7 +27,7 @@ const SignUpScreen = () => {
       emailRef.current.value,
       passwordRef.current.value
     )
-      .then(() => { })
+      .then(() => {})
       .catch(error => {
         alert(error.message);
       });
@@ -40,6 +40,7 @@ const SignUpScreen = () => {
         <input ref={emailRef} placeholder="Email" type="email" />
         <input ref={passwordRef} placeholder="Password" type="password" />
         <button type="submit" onClick={handleSignIn}>Sign In</button>
+        <div className="signup-screen-divider" />
         <h4>
           <span className="signup-screen-text-gray">New to Techieflix? </span>
           <span className="signup-screen-link" onClick={handleRegister}>Sign up Now</span>.

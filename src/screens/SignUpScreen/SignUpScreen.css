@@ -7,6 +7,11 @@
   border-radius: 20px;
 }
 
+.signup-screen-divider {
+  height: 25px;
+  border-bottom: 1px solid #282c2d;
+}
+
 .signup-screen > form {
   display: grid;
   flex-direction: column;
@@ -40,7 +45,7 @@
 
 .signup-screen > form > h4 {
   text-align: left;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .signup-screen-text-gray {

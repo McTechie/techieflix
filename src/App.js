@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { HomeScreen, LoginScreen } from "./screens";
+import { HomeScreen, LoginScreen, ProfileScreen } from "./screens";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "firebase";
@@ -20,7 +20,7 @@ function App() {
           email: user.email,
         }));
       } else {
-        dispatch(logout);
+        dispatch(logout());
       }
     });
 
@@ -37,11 +37,8 @@ function App() {
               <Route exact path="/">
                 <HomeScreen />
               </Route>
-              <Route exact path="/login">
-                <HomeScreen />
-              </Route>
               <Route exact path="/profile">
-                <HomeScreen />
+                <ProfileScreen />
               </Route>
             </Switch>
           )}
