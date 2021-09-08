@@ -67,7 +67,7 @@ const SignUpScreen = ({ signupEmail, setSignupEmail, toggleRegister }) => {
           type="submit"
           onClick={handleSignIn}
         >
-          Sign In
+          Login
         </button>
         <div className="signup-screen-divider" />
         <h4>
