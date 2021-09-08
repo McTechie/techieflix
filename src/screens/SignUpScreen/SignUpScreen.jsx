@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "firebase";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
 import "./SignUpScreen.css";
 
 const SignUpScreen = ({ signupEmail, setSignupEmail, toggleRegister }) => {
@@ -19,14 +21,21 @@ const SignUpScreen = ({ signupEmail, setSignupEmail, toggleRegister }) => {
       .then((userCredential) => {
         setSignupEmail("");
         const user = userCredential.user;
-        console.log(user);
         addDoc(collection(db, "users"), {
           user: user.email,
           billing: "Techieflix Basic",
           timestamp: serverTimestamp(),
         });
       })
-      .catch(error => alert(error.message));
+      .catch(error => {
+        let errorMssg = error.message.toString().slice(22,).split(")")[0];
+        let splitStr = errorMssg.split("-");
+        for (var i = 0; i < splitStr.length; i++) {
+          splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+        }
+        errorMssg = splitStr.join(" ");
+        alertify.alert('Ohh Oh...', `Looks like a... ${errorMssg} case`, () => {});
+      });
   }
 
   const handleSignIn = (e) => {
@@ -37,7 +46,15 @@ const SignUpScreen = ({ signupEmail, setSignupEmail, toggleRegister }) => {
       passwordRef.current.value
     )
     .then(console.log("Signed In"))
-    .catch(err => alert(err.message));
+    .catch(error => {
+      let errorMssg = error.message.toString().slice(22,).split(")")[0];
+      let splitStr = errorMssg.split("-");
+      for (var i = 0; i < splitStr.length; i++) {
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+      }
+      errorMssg = splitStr.join(" ");
+      alertify.alert('Ohh Oh...', `Looks like a... ${errorMssg} case`, () => { });
+    });
   }
 
   return (
@@ -65,7 +82,13 @@ const SignUpScreen = ({ signupEmail, setSignupEmail, toggleRegister }) => {
       </form>)}
       {showRegisterForm && (<form>
         <h1>Sign Up</h1>
-        <input value={signupEmail} onChange={(e) => setSignupEmail(e.target.value)} ref={emailRef} placeholder="Email" type="email" />
+        <input
+          value={signupEmail}
+          onChange={(e) => setSignupEmail(e.target.value)}
+          ref={emailRef}
+          placeholder="Email"
+          type="email"
+        />
         <input ref={passwordRef} placeholder="Password" type="password" />
         <button
           type="submit"

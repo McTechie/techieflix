@@ -31,3 +31,67 @@
   font-weight: 400;
   font-size: 1rem;
 }
+
+.ajs-header {
+  background-color: #e50914 !important;
+  color: #fff;
+  font-weight: 600;
+}
+
+.ajs-commands {
+  background-color: #e50914;
+  border-radius: 50%;
+}
+
+.ajs-commands button.ajs-close {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-vZRf6qTNUe4DpgMrvsbgDJ3mVEPobHQdrw&usqp=CAU") !important;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+}
+
+.ajs-body, .ajs-primary, .ajs-dialog, .ajs-footer {
+  background-color: #222 !important;
+  color: #fff;
+}
+
+.ajs-content {
+  margin: 10px;
+}
+
+.ajs-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+}
+
+.ajs-ok {
+  visibility: hidden;
+}
+
+.ajs-ok:after {
+  visibility: visible;
+  content: "Proceed";
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+}
+
+.ajs-cancel {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 1px solid #e50914;
+  background-color: #222;
+  color: #fff;
+  cursor: pointer;
+}
+
+.alertify-notifier .ajs-message.ajs-success {
+  color: #fff;
+  background: #e50914 !important;
+}

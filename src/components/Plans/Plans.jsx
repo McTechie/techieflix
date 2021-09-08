@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { selectUser } from "features/userSlice";
 import { collection, query, where, getDocs, doc, updateDoc } from "firebase/firestore";
 import { db } from "firebase";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
 import "./Plans.css";
 
 const Plans = () => {
@@ -21,8 +23,8 @@ const Plans = () => {
         const userData = doc.data();
         setCurrentBilling(userData.billing);
         let date = userData.timestamp.toDate().toLocaleDateString();
-        let monthIncrement = parseInt(date.split("/")[1]) + 1;
-        date = date.split("/")[0] + "/" + monthIncrement.toString() + "/" + date.split("/")[2];
+        let dateArray = date.split("/");
+        date = dateArray[0] + "/" + dateArray[1] + "/" + (parseInt(dateArray[2]) + 1).toString();
         setRenewalDate(date);
       });
     }
@@ -48,16 +50,28 @@ const Plans = () => {
     return getPlansInfo;
   }, []);
 
-  const updateSubscription = async (planName, planPrice) => {
-    alert(`You will be updating your package! Package Cost: $${planPrice}`);
-    const billingRef = doc(db, "users", userUID);
-    await updateDoc(billingRef, {
-      "billing": planName
-    });
-    setCurrentBilling(planName);
+  const updateSubscription = (planName, planPrice) => {
+    alertify.confirm(
+      'Plan Upgrade',
+      `<p>
+        You will be updating your package!<br /><br />
+        <b>Current Package:</b> &nbsp; ${currentBilling}<br /><br />
+        <b>Selected Package:</b> &nbsp; ${planName}<br /><br />
+        <b>Package Cost:</b> &nbsp; $${planPrice}
+      </p>`,
+      async () => {
+        const billingRef = doc(db, "users", userUID);
+        await updateDoc(billingRef, {
+          "billing": planName
+        });
+        setCurrentBilling(planName);
+        alertify.success('Plan Updated Successfully!')
+      },
+      () => {}
+    );
   }
 
-  const handleSubscription = async (e, planName, planPrice) => {
+  const handleSubscription = (e, planName, planPrice) => {
     e.preventDefault();
     (e.target.innerHTML === "Subscribe") ?
       updateSubscription(planName, planPrice) :
