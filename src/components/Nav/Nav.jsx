@@ -31,13 +31,13 @@ const Nav = () => {
                     className="nav-logo"
                     // src="logo_full.png"
                     src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
-                    alt=""
+                    alt="Techieflix Logo"
                 />
                 <img
                     onClick={() => history.push("/profile")}
                     className="nav-avatar"
                     src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/1b/1b78352c6e41eab45748dfb0bce99b46e4584267_full.jpg"
-                    alt=""
+                    alt="User Avatar"
                 />
             </div>
         </div>

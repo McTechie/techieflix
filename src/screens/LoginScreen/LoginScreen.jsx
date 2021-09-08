@@ -4,22 +4,32 @@ import "./LoginScreen.css";
 
 const LoginScreen = () => {
   const [signIn, setSignIn] = useState(false);
+  const [toggleRegister, setToggleRegister] = useState(false);
+  const [signupEmail, setSignupEmail] = useState("");
 
   return (
     <div className="login-screen">
       <div className="login-screen-bg">
         <img
           src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
-          alt=""
+          alt="Techieflix Logo"
           className="login-screen-logo"
+          onClick={() => setSignIn(false)}
         />
-        <button className="login-screen-btn" onClick={() => setSignIn(!signIn)}>
-          Sign In
+        <button
+          className="login-screen-btn"
+          onClick={() => setSignIn(!signIn)}
+        >
+          {signIn === false ? "Sign In" : "Go Back"}
         </button>
         <div className="login-screen-gradient" />
         <div className="login-screen-body">
           {signIn ? (
-            <SignUpScreen />
+            <SignUpScreen
+              signupEmail={signupEmail}
+              setSignupEmail={setSignupEmail}
+              toggleRegister={toggleRegister}
+            />
           ) : (
               <div className="login-screen-landing">
               <h1>Exciting movies, TV shows and more!</h1>
@@ -27,8 +37,21 @@ const LoginScreen = () => {
               <h3>Ready to watch? Enter your email to create or renew your membership.</h3>
               <div className="login-screen-input">
                 <form>
-                  <input type="email" placeholder="Email Address" />
-                  <button className="login-screen-get-started-btn" onClick={() => setSignIn(true)}>GET STARTED</button>
+                  <input
+                    value={signupEmail}
+                    onChange={(e) => setSignupEmail(e.target.value)}
+                    type="email"
+                    placeholder="Email Address"
+                  />
+                  <button
+                    className="login-screen-get-started-btn"
+                    onClick={() => {
+                      setSignIn(true);
+                      setToggleRegister(true);
+                    }}
+                  >
+                    GET STARTED
+                  </button>
                 </form>
               </div>
             </div>

@@ -11,6 +11,7 @@
   width: 150px;
   object-fit: contain;
   padding-left: 20px;
+  cursor: pointer;
 }
 
 .login-screen-btn {
@@ -24,6 +25,7 @@
   cursor: pointer;
   color: #fff;
   background-color: #e50914;
+  border-radius: 5px;
 }
 
 .login-screen-gradient {
@@ -87,7 +89,7 @@
 }
 
 .login-screen-get-started-btn {
-  padding: 15.6px 20px 17px 20px;
+  padding: 14.8px 20px 16.6px 20px;
   font-size: 1rem;
   color: #fff;
   background-color: #e50914;

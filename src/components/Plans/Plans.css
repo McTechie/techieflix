@@ -1,0 +1,33 @@
+.plan {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  opacity: 0.8;
+}
+
+.plan:hover {
+  opacity: 1;
+}
+
+.plan-info {
+  margin-right: 30px;
+}
+
+.plan > button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+}
+
+.subscribed-plan > button {
+  background-color: gray;
+}
+
+.plan-renewal-date {
+  color: gray;
+  font-weight: 400;
+  font-size: 1rem;
+}
