@@ -20,7 +20,7 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
   // Fade right of rows as well
 
   return (
-    <div className="row">
+    <div className="row" id={title.toLowerCase().split(" ").join("")}>
       <h2>{title}</h2>
 
       <div className="row-overlay">

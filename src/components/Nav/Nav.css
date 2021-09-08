@@ -30,6 +30,25 @@
     cursor: pointer;
 }
 
+.nav-links {
+    position: relative;
+    left: 100px;
+}
+
+.nav-links > button {
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    margin-right: 10px;
+}
+
+.nav-links > button > a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .nav-avatar {
     position: fixed;
     right: 20px;

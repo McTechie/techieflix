@@ -14,6 +14,11 @@ const Nav = () => {
         }
     }
 
+    const handleNavScroll = (e, genre) => {
+        document.getElementById(genre).scrollIntoView(true);
+        window.scrollBy(0, -65);
+    }
+
     useEffect(() => {
         window.addEventListener("scroll", transitionNavbar);
         return () => {
@@ -21,18 +26,29 @@ const Nav = () => {
         }
     }, []);
 
-    // Add other links as well
-
     return (
-        <div className={`nav ${show && "nav-black"}`}>
+        <nav className={`nav ${show && "nav-black"}`}>
             <div className="nav-contents">
-                <img
-                    onClick={() => history.push("/")}
-                    className="nav-logo"
-                    // src="logo_full.png"
-                    src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
-                    alt="Techieflix Logo"
-                />
+                <div className="nav-links-container">
+                    <img
+                        onClick={() => history.push("/")}
+                        className="nav-logo"
+                        src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
+                        alt="Techieflix Logo"
+                    />
+                    {show && (
+                        <div className="nav-links">
+                            <button onClick={(e) => handleNavScroll(e, "techieflixoriginals")}>Originals</button>
+                            <button onClick={(e) => handleNavScroll(e, "trendingnow")}>Trending</button>
+                            <button onClick={(e) => handleNavScroll(e, "animations")}>Animations</button>
+                            <button onClick={(e) => handleNavScroll(e, "sci-fi")}>Sci-Fi</button>
+                            <button onClick={(e) => handleNavScroll(e, "action")}>Action</button>
+                            <button onClick={(e) => handleNavScroll(e, "comedy")}>Comedy</button>
+                            <button onClick={(e) => handleNavScroll(e, "romance")}>Romance</button>
+                            <button onClick={(e) => handleNavScroll(e, "fiction")}>Other</button>
+                        </div>
+                    )}
+                </div>
                 <img
                     onClick={() => history.push("/profile")}
                     className="nav-avatar"
@@ -40,7 +56,7 @@ const Nav = () => {
                     alt="User Avatar"
                 />
             </div>
-        </div>
+        </nav>
     );
 }
  
