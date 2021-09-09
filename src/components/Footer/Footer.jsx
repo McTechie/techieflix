@@ -15,7 +15,10 @@ const Footer = () => {
           &copy; <span className={`${highlightFooter && "footer-highlight"}`}>Techieflix</span> 2021
         </div>
         <div className="footer-tagline">
-          const madeWith = ( <i className={`${highlightFooter && "footer-highlight"} fas fa-heartbeat`} /> , <i className={`${highlightFooter && "footer-highlight"} fab fa-google`} /> , <i className={`${highlightFooter && "footer-highlight"} fas fa-mug-hot`} /> )<span className="footer-tagline-sm"><br /></span> =&gt; &#123; A <span className={`footer-tagline-creator ${highlightFooter && "footer-highlight"}`}>McTechie</span> Creation &#125;
+          const madeWith = ( <i className={`${highlightFooter && "footer-highlight"} fas fa-heartbeat`} /> , <i className={`${highlightFooter && "footer-highlight"} fab fa-google`} /> , <i className={`${highlightFooter && "footer-highlight"} fas fa-mug-hot`} /> )=&gt; &#123; A <span className={`footer-tagline-creator ${highlightFooter && "footer-highlight"}`}>McTechie</span> Creation &#125;
+        </div>
+        <div className="footer-tagline-sm">
+          Made with &nbsp;<i className={`${highlightFooter && "footer-highlight"} fas fa-heartbeat`} /> , <i className={`${highlightFooter && "footer-highlight"} fab fa-google`} /> &amp; <i className={`${highlightFooter && "footer-highlight"} fas fa-mug-hot`} /> &nbsp; by <span className={`footer-tagline-creator ${highlightFooter && "footer-highlight"}`}>McTechie</span>
         </div>
         <div className="footer-sponsor">
           Powered by

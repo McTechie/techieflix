@@ -57,13 +57,13 @@
   }
 
   .footer-tagline {
-    margin-top: 20px;
-    right: 0px;
+    display: none;
   }
 
-  
   .footer-tagline-sm {
     display: block;
+    position: relative;
+    top: 10px;
   }
 
   .footer-sponsor {

@@ -63,6 +63,10 @@
         font-size: 2.5rem;
     }
 
+    .banner-fade-bottom {
+        height: 9.3rem;
+    }
+
     .banner-desc {
         max-width: 260px;
         padding-top: 1.5rem;
