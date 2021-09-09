@@ -28,7 +28,7 @@ const Nav = () => {
                     <img
                         onClick={() => history.push("/")}
                         className="nav-logo"
-                        src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
+                        src="/logo_full.png"
                         alt="Techieflix Logo"
                     />
                     <div className="nav-links">

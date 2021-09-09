@@ -22,9 +22,9 @@
 
 .nav-logo {
     position: fixed;
-    top: 10px;
+    top: 15px;
     left: 0px;
-    width: 80px;
+    width: 100px;
     object-fit: contain;
     padding-left: 20px;
     cursor: pointer;
@@ -32,7 +32,7 @@
 
 .nav-links {
     position: relative;
-    left: 120px;
+    left: 140px;
 }
 
 .nav-links > button {
