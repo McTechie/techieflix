@@ -32,11 +32,12 @@
 
 .nav-links {
     position: relative;
-    left: 100px;
+    left: 120px;
 }
 
 .nav-links > button {
     color: #fff;
+    opacity: 0.7;
     border: none;
     font-weight: 600;
     cursor: pointer;
@@ -44,9 +45,8 @@
     margin-right: 10px;
 }
 
-.nav-links > button > a {
-    text-decoration: none;
-    color: #fff;
+.nav-links > button:hover {
+    opacity: 1;
 }
 
 .nav-avatar {
@@ -56,4 +56,10 @@
     height: 35px;
     cursor: pointer;
     border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
 }

@@ -40,7 +40,7 @@ const Plans = () => {
       const plansQuery = query(collection(db, "plans"));
       const plansQuerySnapshot = await getDocs(plansQuery);
       plansQuerySnapshot.forEach((doc) => {
-        plans.push(doc.data());
+        plans.push({ item: doc.data(), id: doc.id });
       });
       setProducts(plans);
     }
@@ -83,13 +83,13 @@ const Plans = () => {
       <br />
       {renewalDate && <p className="plan-renewal-date">Renewal Date: {renewalDate}</p>}
       {products.map(plan => (
-        <div className={`plan ${(plan.Name === currentBilling) && "subscribed-plan"}`}>
+        <div key={plan.id} className={`plan ${(plan.item.Name === currentBilling) && "subscribed-plan"}`}>
           <div className="plan-info">
-            <h5>{plan.Name}</h5>
-            <h6>{plan.Type}</h6>
+            <h5>{plan.item.Name}</h5>
+            <h6>{plan.item.Type}</h6>
           </div>
-          <button onClick={(e) => handleSubscription(e, plan.Name, plan.Price)}>
-            {(plan.Name === currentBilling) ? "Current Package" : "Subscribe"}
+          <button onClick={(e) => handleSubscription(e, plan.item.Name, plan.item.Price)}>
+            {(plan.item.Name === currentBilling) ? "Current Package" : "Subscribe"}
           </button>
         </div>
       ))}

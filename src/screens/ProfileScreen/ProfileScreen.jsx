@@ -23,7 +23,7 @@ const ProfileScreen = () => {
         <div className="profile-screen-info">
           <img
             src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/1b/1b78352c6e41eab45748dfb0bce99b46e4584267_full.jpg"
-            alt=""
+            alt="User Avatar"
           />
           <div className="profile-screen-details">
             <h2>{user.email}</h2>

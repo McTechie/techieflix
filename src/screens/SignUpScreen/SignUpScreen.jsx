@@ -45,7 +45,7 @@ const SignUpScreen = ({ signupEmail, setSignupEmail, toggleRegister }) => {
       emailRef.current.value,
       passwordRef.current.value
     )
-    .then(console.log("Signed In"))
+    .then(() => {})
     .catch(error => {
       let errorMssg = error.message.toString().slice(22,).split(")")[0];
       let splitStr = errorMssg.split("-");
@@ -60,14 +60,14 @@ const SignUpScreen = ({ signupEmail, setSignupEmail, toggleRegister }) => {
   return (
     <div className="signup-screen">
       {!showRegisterForm && (<form>
-        <h1>Sign In</h1>
+        <h1>Login</h1>
         <input ref={emailRef} placeholder="Email" type="email" />
         <input ref={passwordRef} placeholder="Password" type="password" />
         <button
           type="submit"
           onClick={handleSignIn}
         >
-          Login
+          Sign In
         </button>
         <div className="signup-screen-divider" />
         <h4>

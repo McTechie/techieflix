@@ -95,3 +95,14 @@
   color: #fff;
   background: #e50914 !important;
 }
+
+@media screen and (max-width: 768px) {
+  .plan {
+    padding: 15px 0px;
+  }
+
+  .plan > button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+}

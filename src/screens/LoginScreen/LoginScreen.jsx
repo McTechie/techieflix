@@ -34,7 +34,7 @@ const LoginScreen = () => {
               <div className="login-screen-landing">
               <h1>Exciting movies, TV shows and more!</h1>
               <h2>Watch anywhere. Cancel at any time.</h2>
-              <h3>Ready to watch? Enter your email to create or renew your membership.</h3>
+              <h3>Ready to watch? Let's Go!</h3>
               <div className="login-screen-input">
                 <form>
                   <input

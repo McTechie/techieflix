@@ -56,3 +56,17 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) {
+  .signup-screen {
+    padding: 30px;
+  }
+
+  .signup-screen > form > h1 {
+    font-size: 1.8rem;
+  }
+
+  .signup-screen > form > h4 {
+    font-size: 1rem;
+  }
+}

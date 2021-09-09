@@ -9,7 +9,7 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 5%;
+  padding-top: 6%;
   max-width: 800px;
 }
 
@@ -72,11 +72,22 @@
     font-size: 2rem;
   }
 
-  .profile-screen-info {
-    display: flex;
+  .profile-screen-info > img {
+    height: 55px;
   }
 
-  .profile-screen-info > img {
-    height: 60px;
+  .profile-screen-details > h2 {
+    padding: 12px 10px;
+    font-size: 12px;
+    width: 60vw;
+  }
+  
+  .profile-screen-plans > h3 {
+    padding-bottom: 5px;
+  }
+
+  .profile-screen-signout-btn {
+    padding: 10px;
+    font-size: 0.8rem;
   }
 }

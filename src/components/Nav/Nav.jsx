@@ -14,11 +14,6 @@ const Nav = () => {
         }
     }
 
-    const handleNavScroll = (e, genre) => {
-        document.getElementById(genre).scrollIntoView(true);
-        window.scrollBy(0, -65);
-    }
-
     useEffect(() => {
         window.addEventListener("scroll", transitionNavbar);
         return () => {
@@ -36,18 +31,13 @@ const Nav = () => {
                         src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
                         alt="Techieflix Logo"
                     />
-                    {show && (
-                        <div className="nav-links">
-                            <button onClick={(e) => handleNavScroll(e, "techieflixoriginals")}>Originals</button>
-                            <button onClick={(e) => handleNavScroll(e, "trendingnow")}>Trending</button>
-                            <button onClick={(e) => handleNavScroll(e, "animations")}>Animations</button>
-                            <button onClick={(e) => handleNavScroll(e, "sci-fi")}>Sci-Fi</button>
-                            <button onClick={(e) => handleNavScroll(e, "action")}>Action</button>
-                            <button onClick={(e) => handleNavScroll(e, "comedy")}>Comedy</button>
-                            <button onClick={(e) => handleNavScroll(e, "romance")}>Romance</button>
-                            <button onClick={(e) => handleNavScroll(e, "fiction")}>Other</button>
-                        </div>
-                    )}
+                    <div className="nav-links">
+                        <button>Home</button>
+                        <button>TV Series</button>
+                        <button>Anime</button>
+                        <button>Popular</button>
+                        <button>My List</button>
+                    </div>
                 </div>
                 <img
                     onClick={() => history.push("/profile")}
