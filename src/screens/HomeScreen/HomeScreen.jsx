@@ -1,4 +1,4 @@
-import { Nav, Banner, Row } from "components";
+import { Nav, Banner, Row, Footer } from "components";
 import "./HomeScreen.css";
 import requests, { baseURL } from "Requests";
 
@@ -19,6 +19,8 @@ const HomeScreen = () => {
             <Row title="FICTION" fetchUrl={baseURL + requests.fetchFictionMovies} />
             <Row title="HORROR" fetchUrl={baseURL + requests.fetchHorrorMovies} />
             <Row title="DOCUMENTARIES" fetchUrl={baseURL + requests.fetchDocumentaries} />
+
+            <Footer />
         </div>
     );
 }
