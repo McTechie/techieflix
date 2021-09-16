@@ -1,12 +1,12 @@
-import { Nav, Banner, Row, Footer } from "components";
-import "./HomeScreen.css";
-import requests, { baseURL } from "Requests";
+import { Nav, Banner, Row, Footer } from 'components'
+import './HomeScreen.css'
+import requests, { baseURL } from 'Requests'
 
 const HomeScreen = () => {
-    return (
+  return (
         <div className="home-screen">
             <Nav />
-            
+
             <Banner />
 
             <Row title="TECHIEFLIX ORIGINALS" fetchUrl={baseURL + requests.fetchNetflixOriginals} isLargeRow />
@@ -22,7 +22,7 @@ const HomeScreen = () => {
 
             <Footer />
         </div>
-    );
+  )
 }
- 
-export default HomeScreen;
+
+export default HomeScreen

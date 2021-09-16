@@ -1,18 +1,18 @@
-import { useHistory } from "react-router";
-import { useSelector } from "react-redux";
-import { selectUser } from "features/userSlice";
-import { signOut } from "firebase/auth";
-import { auth } from "firebase";
-import { Nav, Plans } from "components";
-import "./ProfileScreen.css";
+import { useHistory } from 'react-router'
+import { useSelector } from 'react-redux'
+import { selectUser } from 'features/userSlice'
+import { signOut } from 'firebase/auth'
+import { auth } from 'firebase'
+import { Nav, Plans } from 'components'
+import './ProfileScreen.css'
 
 const ProfileScreen = () => {
-  const history = useHistory();
-  const user = useSelector(selectUser);
+  const history = useHistory()
+  const user = useSelector(selectUser)
 
   const handleSignOut = () => {
-    signOut(auth);
-    history.push("/");
+    signOut(auth)
+    history.push('/')
   }
 
   return (
@@ -41,7 +41,7 @@ const ProfileScreen = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }
- 
-export default ProfileScreen;
+
+export default ProfileScreen

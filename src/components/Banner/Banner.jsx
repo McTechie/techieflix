@@ -1,32 +1,32 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import requests, { baseURL } from "Requests";
-import "./Banner.css";
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import requests, { baseURL } from 'Requests'
+import './Banner.css'
 
 const Banner = () => {
-    const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState([])
 
-    const truncateOverview = (str, size) => str?.length > size ? str.substr(0, size - 1) + "..." : str;
+  const truncateOverview = (str, size) => str?.length > size ? str.substr(0, size - 1) + '...' : str
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await axios.get(baseURL + requests.fetchNetflixOriginals);
-            setMovie(
-                res.data.results[Math.floor(Math.random() * res.data.results.length - 1)]
-            );
-            return res; // Good Practice - Closing Promise Chain
-        }
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(baseURL + requests.fetchNetflixOriginals)
+      setMovie(
+        res.data.results[Math.floor(Math.random() * res.data.results.length - 1)]
+      )
+      return res // Good Practice - Closing Promise Chain
+    }
 
-        fetchData();
-    }, []);
+    fetchData()
+  }, [])
 
-    return (
-        <header 
+  return (
+        <header
             className="banner"
             style={{
-                backgroundSize: "cover",
-                backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
-                backgroundPosition: "center center"
+              backgroundSize: 'cover',
+              backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
+              backgroundPosition: 'center center'
             }}
         >
             <div className="banner-contents">
@@ -42,7 +42,7 @@ const Banner = () => {
 
             <div className="banner-fade-bottom" />
         </header>
-    );
+  )
 }
 
-export default Banner;
+export default Banner
