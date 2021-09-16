@@ -18,8 +18,6 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
     fetchData()
   }, [fetchUrl])
 
-  // Fade right of rows as well
-
   return (
     <div className="row" id={title.toLowerCase().split(' ').join('')}>
       <h2>{title}</h2>

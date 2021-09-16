@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, lazy, Suspense } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { HomeScreen, LoginScreen, ProfileScreen } from './screens'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from 'firebase'
 import { login, logout, selectUser } from 'features/userSlice'
 import './App.css'
+
+const HomeScreen = lazy(() => import('screens/HomeScreen/HomeScreen'))
+const LoginScreen = lazy(() => import('screens/LoginScreen/LoginScreen'))
+const ProfileScreen = lazy(() => import('screens/ProfileScreen/ProfileScreen'))
 
 function App () {
   const user = useSelector(selectUser)
@@ -28,7 +31,8 @@ function App () {
 
   return (
     <div className="app">
-      <Router>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Router>
           {!user
             ? (
             <LoginScreen />
@@ -43,7 +47,8 @@ function App () {
               </Route>
             </Switch>
               )}
-      </Router>
+        </Router>
+      </Suspense>
     </div>
   )
 }
