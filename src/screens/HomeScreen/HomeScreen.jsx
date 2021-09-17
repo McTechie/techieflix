@@ -17,9 +17,9 @@ const HomeScreen = () => {
 
   const fetchTrailer = async (id, name) => {
     setTrailerTitle(name)
-    let videos = await axios.get(`http://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+    let videos = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
     if (videos.data.results.length === 0) {
-      videos = await axios.get(`http://api.themoviedb.org/3/tv/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+      videos = await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
     }
     const youtubeKey = videos.data.results.at(-1)?.key
     if (youtubeKey) {
