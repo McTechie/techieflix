@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import axios from 'axios'
 import alertify from 'alertifyjs'
 import 'alertifyjs/build/css/alertify.css'
 import './Row.css'
+
+const Trailer = lazy(() => import('components/Trailer/Trailer'))
 
 const Row = ({ title, fetchUrl, isLargeRow = false }) => {
   const [movies, setMovies] = useState([])
@@ -47,21 +49,12 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
 
   return (
     <>
-      {showTrailer && (<div id="trailerModal" className="trailer-modal">
-        <div className="trailer-modal-content">
-          <div className="trailer-modal-header">
-            <span className="trailer-modal-close" onClick={() => setShowTrailer(false)}>&times;</span>
-            <h2>{trailerTitle}</h2>
-          </div>
-          <div className="trailer-modal-body">
-            <iframe className="trailer-iframe" src={trailerUrl} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-          </div>
-        </div>
-      </div>)}
+      {showTrailer && <Suspense fallback={<p>Loading...</p>}>
+        <Trailer trailerTitle={trailerTitle} trailerUrl={trailerUrl} setShowTrailer={setShowTrailer} />
+      </Suspense>}
+
       <div className="row">
-
         <h2>{title}</h2>
-
         <div className="row-overlay">
           <div className="row-posters">
             {movies.map((movie) => (

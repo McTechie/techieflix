@@ -47,7 +47,6 @@
 
 .nav-links > button:hover {
     opacity: 0.9;
-    transform: translateY(-2px);
 }
 
 .nav-avatar {
