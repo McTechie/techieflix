@@ -36,3 +36,88 @@
   transform: scale(1.09);
   opacity: 1;
 }
+
+/* Trailer Styles */
+
+.trailer-modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.trailer-modal-content {
+  position: relative;
+  top: -80px;
+  margin: 0 auto;
+  width: 80%;
+  background-color: #111;
+  border: 1px solid #111;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-400px; opacity:0} 
+  to {top: -80px; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-400px; opacity:0}
+  to {top: -80px; opacity:1}
+}
+
+.trailer-modal-close {
+  color: #fff;
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+  position: relative;
+  bottom: 2px;
+}
+
+.trailer-modal-close:hover,
+.trailer-modal-close:focus {
+  color: #111;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.trailer-modal-header {
+  padding: 10px 16px;
+  background-color: #e50914;
+  color: #fff;
+}
+
+.trailer-modal-body {
+  position: relative;
+  width: 100%;
+  overflow-y: hidden;
+  padding-top: 56.25%;
+}
+
+.trailer-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media screen and (max-width: 760px) {
+  .trailer-modal-header {
+    font-size: 0.7rem;
+  }
+}

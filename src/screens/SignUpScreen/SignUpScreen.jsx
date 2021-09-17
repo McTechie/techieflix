@@ -55,7 +55,7 @@ const SignUpScreen = ({ signupEmail, setSignupEmail, toggleRegister }) => {
           splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
         }
         errorMssg = splitStr.join(' ')
-        alertify.alert('Ohh Oh...', `Looks like a... ${errorMssg} case`, () => { })
+        alertify.alert('Ohh Oh...', `Looks like a... ${errorMssg} case`, () => {})
       })
   }
 
